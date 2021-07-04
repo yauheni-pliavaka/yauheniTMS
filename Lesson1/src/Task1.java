@@ -3,7 +3,7 @@ public class Task1 {
         int count = 0;
         for (String arg : args) {
             if (Integer.parseInt(arg) > 0) {
-                          count++;
+                count++;
             }
         }
         System.out.println("Count of Positive numbers: " + count);
