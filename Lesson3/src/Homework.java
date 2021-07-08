@@ -14,8 +14,8 @@ public class Homework {
 //        foobar(10);
 //        foobar(15);
 //        calculateSumOfDiagonalElements();
-        printMatrix();
-//        printPrimeNumbers();
+//        printMatrix();
+        printPrimeNumbers();
     }
 
     /**
@@ -31,7 +31,7 @@ public class Homework {
         int[] array = new int[num];
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (Math.random() * 100);
-            System.out.print(array[i] + "  ");
+            System.out.print(array[i] + "\t");
         }
     }
 
@@ -62,8 +62,9 @@ public class Homework {
      */
     public static int calculateCountOfOddElementsInMatrix(int[] ints) {
         int count = 0;
-        for (int i = 0; i < ints.length; i++) {
-            if (ints[i] % 2 != 0) {
+        for (int anInt : ints) {
+            System.out.print(anInt + "\t");
+            if (anInt % 2 != 0) {
                 count++;
             }
         }
@@ -120,7 +121,7 @@ public class Homework {
         for (int i = 0; i < a; i++) {
             for (int j = 0; j < b; j++) {
                 array[i][j] = (int) (Math.random() * 10);
-                System.out.print(array[i][j] + "  ");
+                System.out.print(array[i][j] + "\t");
                 if (i == j) {
                     sum1 += array[i][j];
                 }
@@ -158,7 +159,33 @@ public class Homework {
      * Обратите внимание, что 21% 3 == 0 и 21% 7 = 0, но выводить надо не +-, а +
      */
     public static void printMatrix() {
-        // тут пишем логику
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input a number of lines: ");
+        int lin = scanner.nextInt();
+        System.out.print("Input a number of columns: ");
+        int col = scanner.nextInt();
+        int[][] array = new int[lin][col];
+        for (int i = 0; i < lin; i++) {
+            for (int j = 0; j < col; j++) {
+                array[i][j] = (int) (Math.random() * 100);
+                System.out.print(array[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        for (int i = 0; i < lin; i++) {
+            for (int j = 0; j < col; j++) {
+                if (array[i][j] % 3 == 0) {
+                    array[i][j] = '+';
+                } else if (array[i][j] % 7 == 0) {
+                    array[i][j] = '-';
+                } else {
+                    array[i][j] = '*';
+                }
+                System.out.print((char) array[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 
     /**
@@ -167,6 +194,19 @@ public class Homework {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        // тут пишем логику
+        int n = 1000;
+        int[] array = new int[n];
+        for (int i = 2; i < n; i++) {
+            array[i] = i;
+            for (double j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    array[i] = 0;
+                    break;
+                }
+            }
+            if (array[i] != 0) {
+                System.out.print(array[i] + "\t");
+            }
+        }
     }
 }
