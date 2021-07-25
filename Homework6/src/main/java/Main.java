@@ -23,7 +23,8 @@ public class Main {
     public static ArrayList<Person> initPersonList() {
         ArrayList<Person> personList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            Address address = new Address(Calculation.randomCountry(), Calculation.randomCity(Calculation.randomCountry()));
+            String randomCountry = Calculation.randomCountry();
+            Address address = new Address(randomCountry, Calculation.randomCity(randomCountry));
             personList.add(new Person("name" + i, Calculation.randomAge(),
                     Calculation.randomSex(), address));
             System.out.println(personList.get(i));
