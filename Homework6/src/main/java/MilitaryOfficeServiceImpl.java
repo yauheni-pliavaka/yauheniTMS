@@ -31,10 +31,10 @@ public class MilitaryOfficeServiceImpl implements MilitaryOfficeService {
     }
 
     @Override
-    public int getCountSuitablePersonsByAge(int a, int b) {
+    public int getCountSuitablePersonsByAge(int minAge, int maxAge) {
         int count = 0;
         for (Person person : getSuitablePersons()) {
-            if (person.getAge() >= a && person.getAge() <= b) {
+            if (person.getAge() >= minAge && person.getAge() <= maxAge) {
                 count++;
             }
         }
