@@ -41,4 +41,33 @@ public class Calculation {
     public static int randomAge() {
         return RANDOM.nextInt(16) + 15;
     }
+
+    public static String randomName(Sex sex) {
+        int nameIndex = RANDOM.nextInt(5);
+        if (sex == Sex.MALE) {
+            if (nameIndex == 0) {
+                return "Max";
+            } else if (nameIndex == 1) {
+                return "Alex";
+            } else if (nameIndex == 2) {
+                return "Mike";
+            } else if (nameIndex == 3) {
+                return "John";
+            } else {
+                return "Dean";
+            }
+        } else {
+            if (nameIndex == 0) {
+                return "Emma";
+            } else if (nameIndex == 1) {
+                return "Mia";
+            } else if (nameIndex == 2) {
+                return "Luna";
+            } else if (nameIndex == 3) {
+                return "Mila";
+            } else {
+                return "Clara";
+            }
+        }
+    }
 }

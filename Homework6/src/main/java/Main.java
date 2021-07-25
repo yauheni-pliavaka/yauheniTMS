@@ -16,17 +16,18 @@ public class Main {
         System.out.println(militaryOfficeService.getCountSuitablePersonsFromCity("Minsk"));
         System.out.println("COUNT OF RECRUITS 25-27:");
         System.out.println(militaryOfficeService.getCountSuitablePersonsByAge(25, 27));
-        System.out.println("COUNT OF RECRUITS WITH NAME1:");
-        System.out.println(militaryOfficeService.getCountSuitablePersonsByName("name1"));
+        System.out.println("COUNT OF RECRUITS WITH NAME ALEX:");
+        System.out.println(militaryOfficeService.getCountSuitablePersonsByName("Alex"));
     }
 
     public static ArrayList<Person> initPersonList() {
         ArrayList<Person> personList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 50; i++) {
             String randomCountry = Calculation.randomCountry();
+            Sex sex = Calculation.randomSex();
             Address address = new Address(randomCountry, Calculation.randomCity(randomCountry));
-            personList.add(new Person("name" + i, Calculation.randomAge(),
-                    Calculation.randomSex(), address));
+            personList.add(new Person(Calculation.randomName(sex), Calculation.randomAge(),
+                    sex, address));
             System.out.println(personList.get(i));
         }
         return personList;
