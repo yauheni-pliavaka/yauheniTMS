@@ -10,7 +10,6 @@ import java.util.Scanner;
 @Getter
 @Setter
 @ToString
-
 public class Computer {
     private String cpu;
     private int ram;
@@ -29,7 +28,7 @@ public class Computer {
 
 
     public void info() {
-        System.out.printf("CPU: %s RAM: %d DISK: %d RESOURCE: %d", cpu, ram, disk, resourceCycles);
+        System.out.printf("CPU: %s RAM: %d DISK: %d RESOURCE: %d\n", cpu, ram, disk, resourceCycles);
     }
 
     public void on() {
@@ -61,7 +60,7 @@ public class Computer {
                 value = scanner.nextInt();
             } else {
                 System.out.println("Incorrect data");
-                //если мы вводим буквы вместо числа, то попадаем в бесконечный цикл! пофиксить!!!
+                scanner.next();  //чтобы не попасть в вечный цикл
             }
         } while (!(value == 0 || value == 1));
         return random.nextInt(2) == value;
