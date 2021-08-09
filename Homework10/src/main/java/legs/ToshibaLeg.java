@@ -8,7 +8,7 @@ public class ToshibaLeg implements ILeg {
 
     @Override
     public void step() {
-        System.out.println("Сделала шаг нога Toshiba");
+        System.out.println("Toshiba's leg made a step");
     }
 
     @Override
