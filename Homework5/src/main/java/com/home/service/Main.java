@@ -1,4 +1,4 @@
-package com.home;
+package com.home.service;
 
 import com.home.model.Computer;
 
