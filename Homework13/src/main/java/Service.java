@@ -1,5 +1,8 @@
+import lombok.ToString;
+
 import java.util.ArrayList;
 
+@ToString
 public class Service {
     public String substringByParameters(String str, String firstChar, String lastChar) {
         return str.substring(str.indexOf(firstChar), str.lastIndexOf(lastChar) + 1);
@@ -9,10 +12,11 @@ public class Service {
         return str.replace(str.charAt(charPositionTo), str.charAt(charPositionFrom));
     }
 
+
     public ArrayList<String> palindromeList(String str) {
         ArrayList<String> palindromeList = new ArrayList<>();
-        for (String s : str.split("\\W")) {
-            if (s.equalsIgnoreCase(new StringBuilder(s).reverse().toString())) {
+        for (String s : str.split("[^а-яА-Я]")) {
+            if (s.equalsIgnoreCase(new StringBuilder(s).reverse().toString()) && !s.equals("")) {
                 palindromeList.add(s);
             }
         }
