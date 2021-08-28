@@ -1,30 +1,31 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Service {
-    public String substring(String str, String firstChar, String lastChar) {
+    public String substringByParameters(String str, String firstChar, String lastChar) {
         return str.substring(str.indexOf(firstChar), str.lastIndexOf(lastChar) + 1);
     }
 
-    public String changeLetter(String str, int charPosition) {
-        return str.replace(str.charAt(charPosition), str.charAt(0));
+    public String changeLetter(String str, int charPositionTo, int charPositionFrom) {
+        return str.replace(str.charAt(charPositionTo), str.charAt(charPositionFrom));
     }
 
-    public void isPalindrome(String str) {
-        for (String s : str.split(", ")) {
-            //добавить все символы кроме букв
+    public ArrayList<String> palindromeList(String str) {
+        ArrayList<String> palindromeList = new ArrayList<>();
+        for (String s : str.split("\\W")) {
             if (s.equalsIgnoreCase(new StringBuilder(s).reverse().toString())) {
-                System.out.print(s + "\t");
+                palindromeList.add(s);
             }
         }
-        System.out.println();
+        return palindromeList;
     }
 
     public void sentenceArray(String str, int minWords, int maxWords) {
         for (String s : str.split("\\.")) {
             s = s.trim();
+            int countWords = TextFormatter.getCountWords(s);
             if (TextFormatter.hasPalindrome(s)) {
                 System.out.print(s + ". ");
-            } else if (TextFormatter.wordCount(s.trim()) >= minWords && TextFormatter.wordCount(s) <= maxWords) {
+            } else if (countWords >= minWords && countWords <= maxWords) {
                 System.out.print(s +". ");
             }
         }

@@ -18,13 +18,14 @@ public class Main {
     public static void main(String[] args) {
         Service service = new Service();
         Scanner scanner = new Scanner(System.in);
-        System.out.println(service.substring("оченьдлинноеслово", "е", "н"));
-        System.out.println(service.changeLetter("оченьдлинноеслово", 3));
-        service.isPalindrome("палиндром, заказ, казан, казак, баклажан, кабан, потоп, дед");
+        System.out.println(service.substringByParameters("оченьдлинноеслово", "е", "н"));
+        System.out.println(service.changeLetter("оченьдлинноеслово", 3, 0));
+        System.out.println(service.palindromeList("палиндром, заказ, казан, казак, баклажан, кабан, потоп, дед"));
         service.sentenceArray("Абвба - это палиндром. Зима ушла. Весна. Солнышко начало греть землю. Весело зажурчали ручьи." +
                 " Запели птицы на ветвях. Набухшие почки сменила листва. Всё вокруг зазеленело. Распустились яркие цветы." +
                 " Витя несёт букет ромашек для мамы.", 3, 5);
         System.out.println();
+        System.out.println("Введите текст для сортировки. На экран выведутся только те предложения, в которых от 3-х до 5-ти слов, либо содержится палиндром.");
         service.sentenceArray(scanner.nextLine(), 3, 5);
     }
 }
